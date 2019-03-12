@@ -27,7 +27,7 @@ import android.support.v4.app.Fragment;
 
 import jcrystal.mobile.net.utils.*;
 public abstract class AbsDefaultManager<T> extends NetTask<T>{
-	public static final String BASE_URL = "";
+	public static String BASE_URL = "";
 	private boolean formData;
 	protected String boundary;
 	public AbsDefaultManager(Activity activity, Fragment fragment, OnErrorListener onError){
