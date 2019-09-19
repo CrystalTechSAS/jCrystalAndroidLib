@@ -26,6 +26,10 @@ package jcrystal.mobile.net;
 import android.os.AsyncTask;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
+
+import java.util.Map;
+import java.util.TreeMap;
+
 import jcrystal.mobile.net.utils.OnErrorListener;
 import jcrystal.mobile.net.utils.RequestError;
 import jcrystal.mobile.net.utils.TipoError;
@@ -38,6 +42,7 @@ public abstract class NetTask<T> extends AsyncTask<String, Void, T>{
 	protected RequestError error;
 	protected RequestType type;
 	protected String authorization;
+	protected Map<String, String> headers;
 	protected NetTask(Activity activity, Fragment fragment, OnErrorListener onError){
 		this.activity = activity;
 		this.fragment = fragment;
@@ -55,6 +60,12 @@ public abstract class NetTask<T> extends AsyncTask<String, Void, T>{
 	}
 	public NetTask authorization(String authorization){
 		this.authorization = authorization;
+		return this;
+	}
+	public NetTask header(String key, String value){
+		if(headers == null)
+			headers = new TreeMap<>();
+		headers.put(key, value);
 		return this;
 	}
 	public NetTask doGet(){
