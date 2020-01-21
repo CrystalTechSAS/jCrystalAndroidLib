@@ -25,7 +25,7 @@ package jcrystal.mobile.net;
 
 import android.os.AsyncTask;
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import java.util.Map;
 import java.util.TreeMap;

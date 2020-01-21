@@ -24,7 +24,7 @@
 package jcrystal.mobile.net;
 import android.os.AsyncTask;
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import jcrystal.mobile.net.utils.RequestError;
 
 public class NetChain implements jcrystal.mobile.net.utils.OnErrorListener{

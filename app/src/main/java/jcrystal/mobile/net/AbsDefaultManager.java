@@ -23,7 +23,7 @@
  */
 package jcrystal.mobile.net;
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import jcrystal.mobile.net.utils.*;
 public abstract class AbsDefaultManager<T> extends NetTask<T>{
