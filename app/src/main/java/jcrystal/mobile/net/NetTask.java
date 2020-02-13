@@ -35,64 +35,64 @@ import jcrystal.mobile.net.utils.RequestError;
 import jcrystal.mobile.net.utils.TipoError;
 
 public abstract class NetTask<T> extends AsyncTask<String, Void, T>{
-    final Activity activity;
-	final Fragment fragment;
+    final Activity $activity;
+	final Fragment $fragment;
 	protected final OnErrorListener onError;
 	protected NetChain $chain;
-	protected RequestError error;
-	protected RequestType type;
-	protected String authorization;
-	protected Map<String, String> headers;
+	protected RequestError $error;
+	protected RequestType $type;
+	protected String $authorization;
+	protected Map<String, String> $headers;
 	protected NetTask(Activity activity, Fragment fragment, OnErrorListener onError){
-		this.activity = activity;
-		this.fragment = fragment;
+		this.$activity = activity;
+		this.$fragment = fragment;
 		this.onError = onError;
 	}
 	protected NetTask(Activity activity, OnErrorListener onError){
-		this.activity = activity;
-		this.fragment = null;
+		this.$activity = activity;
+		this.$fragment = null;
 		this.onError = onError;
 	}
 	protected NetTask(Fragment fragment, OnErrorListener onError){
-		this.fragment = fragment;
-		this.activity = null;
+		this.$fragment = fragment;
+		this.$activity = null;
 		this.onError = onError;
 	}
 	public NetTask authorization(String authorization){
-		this.authorization = authorization;
+		this.$authorization = authorization;
 		return this;
 	}
 	public NetTask header(String key, String value){
-		if(headers == null)
-			headers = new TreeMap<>();
-		headers.put(key, value);
+		if($headers == null)
+			$headers = new TreeMap<>();
+		$headers.put(key, value);
 		return this;
 	}
 	public NetTask doGet(){
-		this.type = RequestType.GET;
+		this.$type = RequestType.GET;
 		return this;
 	}
 	public NetTask doPost(){
-		this.type = RequestType.POST;
+		this.$type = RequestType.POST;
 		return this;
 	}
 	public NetTask doPut(){
-		this.type = RequestType.PUT;
+		this.$type = RequestType.PUT;
 		return this;
 	}
 	public NetTask doDelete(){
-		this.type = RequestType.DELETE;
+		this.$type = RequestType.DELETE;
 		return this;
 	}
 	public NetTask doPatch(){
-		this.type = RequestType.PATCH;
+		this.$type = RequestType.PATCH;
 		return this;
 	}
 	public final boolean isContextActive(){
 		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
-			return (activity==null && fragment==null) || (activity != null && !activity.isDestroyed()) || (fragment != null && fragment.getContext() != null);
+			return ($activity ==null && $fragment ==null) || ($activity != null && !$activity.isDestroyed()) || ($fragment != null && $fragment.getContext() != null);
 		}else{
-			return (activity==null && fragment==null) || (activity != null && !activity.isChangingConfigurations() && !activity.isFinishing()) || (fragment != null && fragment.getContext() != null);
+			return ($activity ==null && $fragment ==null) || ($activity != null && !$activity.isChangingConfigurations() && !$activity.isFinishing()) || ($fragment != null && $fragment.getContext() != null);
 		}
 	}
 	public final NetTask<T> exec(){
@@ -106,15 +106,15 @@ public abstract class NetTask<T> extends AsyncTask<String, Void, T>{
 		}
 		catch (java.net.UnknownHostException | javax.net.ssl.SSLException | java.net.ConnectException | java.io.FileNotFoundException | java.net.HttpRetryException | java.net.SocketTimeoutException ex){
 			if(jcrystal.JCrystalApp.DEBUG)ex.printStackTrace();
-			error = new RequestError(TipoError.NO_INTERNET, "Check your internet connection");
+			$error = new RequestError(TipoError.NO_INTERNET, "Check your internet connection");
 		}
 		catch (java.io.IOException | org.json.JSONException ex){
 			if(jcrystal.JCrystalApp.DEBUG)ex.printStackTrace();
-			error = new RequestError(TipoError.SERVER_ERROR, "Error connecting to server");
+			$error = new RequestError(TipoError.SERVER_ERROR, "Error connecting to server");
 		}
 		catch (Exception ex){
 			if(jcrystal.JCrystalApp.DEBUG)ex.printStackTrace();
-			error = new RequestError(TipoError.SERVER_ERROR, "Error connecting to server");
+			$error = new RequestError(TipoError.SERVER_ERROR, "Error connecting to server");
 		
 		}
 		return null;
