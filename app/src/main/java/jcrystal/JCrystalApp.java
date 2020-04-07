@@ -24,6 +24,7 @@
 package jcrystal;
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import jcrystal.datetime.*;
 public class JCrystalApp{
     private static Context context;
     public static boolean DEBUG = false;
