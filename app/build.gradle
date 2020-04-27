@@ -22,5 +22,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    api 'com.github.CrystalTechSAS:jCrystalDates:1.1.0'
+    api 'com.github.CrystalTechSAS:jCrystalDates:5a4486e914a0e1f2c47ee15d1c34b30d8327f251'
 }
